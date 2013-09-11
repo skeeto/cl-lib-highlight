@@ -8,7 +8,7 @@ added using the same regular expressions that `cl` gets, so function
 names get highlighted with `cl-defun`, type names get highlighted with
 `cl-defstruct`, etc.
 
-![](http://i.imgur.com/a6WotLT.png)
+![](http://i.imgur.com/hwenyf3.png)
 
 ## Usage
 

@@ -3,6 +3,8 @@
 ;; This is free and unencumbered software released into the public domain.
 
 ;; Author: Christopher Wellons <wellons@nullprogram.com>
+;; URL: https://github.com/skeeto/cl-lib-highlight
+;; Version: 1.0.0
 
 ;;; Commentary:
 

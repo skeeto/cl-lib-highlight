@@ -97,9 +97,7 @@ up in an automatically generated list, but shouldn't be highlighted.")
       (font-lock-add-keywords 'emacs-lisp-mode
                               (list defs types warnings keywords))
       (font-lock-add-keywords 'lisp-interaction-mode
-                              (list defs types warnings keywords))
-      ;; Also fix cl-defstruct while we're here.
-      (put 'cl-defstruct 'lisp-indent-function 2))))
+                              (list defs types warnings keywords)))))
 
 (defun cl-lib-highlight-warn-cl-initialize ()
   "Mark all of the old cl functions with `flyspell-incorrect'."

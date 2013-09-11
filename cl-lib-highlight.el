@@ -11,7 +11,8 @@
 
 ;; After load, run `cl-lib-highlight-initialize'.
 
-;; Use `cl-lib-highlight-warn-cl-initialize' to warn about old cl.
+;; Run `cl-lib-highlight-warn-cl-initialize' to use highlighting to
+;; warn about depreciated cl usage.
 
 ;;; Code:
 
@@ -22,7 +23,7 @@
     cl-do-all-symbols cl-multiple-value-setq cl-shiftf cl-callf2
     cl-function cl-do-symbols cl-pushnew cl-incf cl-remf cl-decf)
   "Macros that don't get any special treatment. These would show
-up in an automatically generated list, but shouldn't be highlighted.")
+up in an automatically generated list but shouldn't be highlighted.")
 
 (defvar cl-lib-highlight-keywords
   '(cl-letf cl-declaim cl-etypecase cl-case cl-letf*  cl-progv cl-ecase
@@ -111,4 +112,4 @@ up in an automatically generated list, but shouldn't be highlighted.")
 
 (provide 'cl-lib-highlight)
 
-;;; cl-lib-highlight.el
+;;; cl-lib-highlight.el ends here

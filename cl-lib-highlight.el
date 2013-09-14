@@ -76,7 +76,7 @@ up in an automatically generated list but shouldn't be highlighted.")
           substitute substitute-if substitute-if-not svref symbol-macrolet
           tailp tenth the third tree-equal truncate* typecase typep union
           values values-list)
-  "List of old cl package functions to be warning-highlighted.")
+  "List of depreciated cl package functions to be warning-highlighted.")
 
 ;;;###autoload
 (defun cl-lib-highlight-initialize ()
@@ -102,8 +102,7 @@ up in an automatically generated list but shouldn't be highlighted.")
                               (list defs types warnings keywords)))))
 
 (defun cl-lib-highlight-warn-cl-initialize ()
-  "Mark all of the old cl functions with `flyspell-incorrect'."
-  (require 'flyspell)
+  "Mark all of the depreciated cl functions with `cl-lib-warning'."
   (let* ((opt (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t))
          (old (list (concat "(" opt "\\>")
                     '(1 'flyspell-incorrect))))

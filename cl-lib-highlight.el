@@ -11,8 +11,9 @@
 
 ;; After load, run `cl-lib-highlight-initialize'.
 
-;; Run `cl-lib-highlight-warn-cl-initialize' to use highlighting to
-;; warn about depreciated cl usage.
+;; Run `cl-lib-highlight-warn-cl-initialize' to mark depreciated cl
+;; function/macro usage with with the `cl-lib-highlight-depreciated'
+;; face.
 
 ;;; Code:
 
@@ -101,11 +102,15 @@ up in an automatically generated list but shouldn't be highlighted.")
       (font-lock-add-keywords 'lisp-interaction-mode
                               (list defs types warnings keywords)))))
 
+(defface cl-lib-highlight-depreciated
+  '((t :inherit warning))
+  "Face for depreciated cl functions and macros.")
+
 (defun cl-lib-highlight-warn-cl-initialize ()
   "Mark all of the depreciated cl functions with `cl-lib-warning'."
   (let* ((opt (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t))
          (old (list (concat "(" opt "\\>")
-                    '(1 'flyspell-incorrect))))
+                    '(1 'cl-lib-highlight-depreciated))))
     (font-lock-add-keywords 'emacs-lisp-mode (list old))
     (font-lock-add-keywords 'lisp-interaction-mode (list old))))
 

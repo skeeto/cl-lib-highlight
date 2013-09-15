@@ -83,19 +83,19 @@ up in an automatically generated list but shouldn't be highlighted.")
 (defun cl-lib-highlight-initialize ()
   "Add all cl-lib font lock highlighting to `emacs-lisp-mode'."
   (cl-flet ((opt (syms) (regexp-opt (mapcar #'symbol-name syms) t)))
-    (let ((defs (list (concat "(" (opt cl-lib-highlight-defs) "\\>"
+    (let ((defs (list (concat "(" (opt cl-lib-highlight-defs) "\\_>"
                               "[ \t'(]*"
                               "\\(setf[ \t]+\\sw+\\|\\sw+\\)?")
                       '(1 font-lock-keyword-face)
                       '(2 font-lock-function-name-face nil t)))
-          (types (list (concat "(" (opt cl-lib-highlight-types) "\\>"
+          (types (list (concat "(" (opt cl-lib-highlight-types) "\\_>"
                                "[ \t'(]*"
                                "\\(setf[ \t]+\\sw+\\|\\sw+\\)?")
                        '(1 font-lock-keyword-face)
                        '(2 font-lock-type-face nil t)))
-          (warnings (list (concat "(" (opt cl-lib-highlight-warnings) "\\>")
+          (warnings (list (concat "(" (opt cl-lib-highlight-warnings) "\\_>")
                           '(1 font-lock-warning-face)))
-          (keywords (list (concat "(" (opt cl-lib-highlight-keywords) "\\>")
+          (keywords (list (concat "(" (opt cl-lib-highlight-keywords) "\\_>")
                           '(1 font-lock-keyword-face))))
       (font-lock-add-keywords 'emacs-lisp-mode
                               (list defs types warnings keywords))
@@ -109,7 +109,7 @@ up in an automatically generated list but shouldn't be highlighted.")
 (defun cl-lib-highlight-warn-cl-initialize ()
   "Mark all of the depreciated cl functions with `cl-lib-warning'."
   (let* ((opt (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t))
-         (old (list (concat "(" opt "\\>")
+         (old (list (concat "(" opt "\\_>")
                     '(1 'cl-lib-highlight-depreciated))))
     (font-lock-add-keywords 'emacs-lisp-mode (list old))
     (font-lock-add-keywords 'lisp-interaction-mode (list old))))

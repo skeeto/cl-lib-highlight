@@ -111,7 +111,7 @@ up in an automatically generated list but shouldn't be highlighted.")
   "Mark all of the depreciated cl functions with `cl-lib-warning'."
   (interactive)
   (let* ((opt (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t))
-         (old (list (concat "(" opt "\\_>")
+         (old (list (concat "\\(?:#'\\|(\\)" opt "\\_>")
                     '(1 'cl-lib-highlight-depreciated))))
     (font-lock-add-keywords 'emacs-lisp-mode (list old))
     (font-lock-add-keywords 'lisp-interaction-mode (list old))))

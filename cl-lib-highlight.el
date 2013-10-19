@@ -19,6 +19,10 @@
 
 (require 'cl-lib)
 
+(defgroup cl-lib-highlight nil
+  "Adds special syntax highlighting to cl-lib macros."
+  :group 'font-lock)
+
 (defvar cl-lib-highlight-ignored
   '(cl-psetf cl-psetq cl-load-time-value cl-rotatef cl-pop2 cl-callf
     cl-do-all-symbols cl-multiple-value-setq cl-shiftf cl-callf2
@@ -105,7 +109,8 @@ up in an automatically generated list but shouldn't be highlighted.")
 
 (defface cl-lib-highlight-depreciated
   '((t :inherit warning))
-  "Face for depreciated cl functions and macros.")
+  "Face for depreciated cl functions and macros."
+  :group 'cl-lib-highlight)
 
 (defun cl-lib-highlight-warn-cl-initialize ()
   "Mark all of the depreciated cl functions with `cl-lib-warning'."

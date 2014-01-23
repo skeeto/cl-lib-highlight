@@ -11,8 +11,8 @@
 
 ;; After load, run `cl-lib-highlight-initialize'.
 
-;; Run `cl-lib-highlight-warn-cl-initialize' to mark depreciated cl
-;; function/macro usage with with the `cl-lib-highlight-depreciated'
+;; Run `cl-lib-highlight-warn-cl-initialize' to mark deprecated cl
+;; function/macro usage with with the `cl-lib-highlight-deprecated'
 ;; face.
 
 ;;; Code:
@@ -107,17 +107,17 @@ up in an automatically generated list but shouldn't be highlighted.")
       (font-lock-add-keywords 'lisp-interaction-mode
                               (list defs types warnings keywords)))))
 
-(defface cl-lib-highlight-depreciated
+(defface cl-lib-highlight-deprecated
   '((t :inherit warning))
-  "Face for depreciated cl functions and macros."
+  "Face for deprecated cl functions and macros."
   :group 'cl-lib-highlight)
 
 (defun cl-lib-highlight-warn-cl-initialize ()
-  "Mark all of the depreciated cl functions with `cl-lib-warning'."
+  "Mark all of the deprecated cl functions with `cl-lib-warning'."
   (interactive)
   (let* ((opt (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t))
          (old (list (concat "\\(?:#'\\|(\\)" opt "\\_>")
-                    '(1 'cl-lib-highlight-depreciated))))
+                    '(1 'cl-lib-highlight-deprecated))))
     (font-lock-add-keywords 'emacs-lisp-mode (list old))
     (font-lock-add-keywords 'lisp-interaction-mode (list old))))
 

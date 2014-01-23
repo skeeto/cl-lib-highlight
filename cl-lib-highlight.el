@@ -87,7 +87,7 @@ up in an automatically generated list but shouldn't be highlighted.")
 (defun cl-lib-highlight-initialize ()
   "Add all cl-lib font lock highlighting to `emacs-lisp-mode'."
   (interactive)
-  (cl-flet ((opt (syms) (regexp-opt (mapcar #'symbol-name syms) t)))
+  (cl-labels ((opt (syms) (regexp-opt (mapcar #'symbol-name syms) t)))
     (let ((defs (list (concat "(" (opt cl-lib-highlight-defs) "\\_>"
                               "[ \t'(]*"
                               "\\(setf[ \t]+\\sw+\\|\\sw+\\)?")

@@ -89,13 +89,11 @@ up in an automatically generated list but shouldn't be highlighted.")
   (interactive)
   (cl-labels ((opt (syms) (regexp-opt (mapcar #'symbol-name syms) t)))
     (let ((defs (list (concat "(" (opt cl-lib-highlight-defs) "\\_>"
-                              "[ \t'(]*"
-                              "\\(setf[ \t]+\\sw+\\|\\sw+\\)?")
+                              "\\s-*" "\\(\\(?:\\sw\\|\\s_\\)+\\)?")
                       '(1 font-lock-keyword-face)
                       '(2 font-lock-function-name-face nil t)))
           (types (list (concat "(" (opt cl-lib-highlight-types) "\\_>"
-                               "[ \t'(]*"
-                               "\\(setf[ \t]+\\sw+\\|\\sw+\\)?")
+                               "\\s-*" "\\(\\(?:\\sw\\|\\s_\\)+\\)?")
                        '(1 font-lock-keyword-face)
                        '(2 font-lock-type-face nil t)))
           (warnings (list (concat "(" (opt cl-lib-highlight-warnings) "\\_>")

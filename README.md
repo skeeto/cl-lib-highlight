@@ -22,6 +22,8 @@ also run `cl-lib-highlight-warn-cl-initialize`.
 ## Motivation
 
 I think `cl-lib` was a mistake, but since it's here it needs to be
-well-supported. The Emacs devs
-[have chosen to exclude `cl-lib` font-locking](http://emacs.1067599.n5.nabble.com/bug-12761-cl-lib-el-functions-do-not-get-font-locked-like-cl-el-ones-td268332.html)
-so it must be supported through a library.
+well-supported. ~~The Emacs devs [have chosen to exclude `cl-lib`
+font-locking][m] so it must be supported through a library.~~
+
+
+[m]: http://emacs.1067599.n5.nabble.com/bug-12761-cl-lib-el-functions-do-not-get-font-locked-like-cl-el-ones-td268332.html

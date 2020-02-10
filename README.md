@@ -1,5 +1,7 @@
 # cl-lib highlighting
 
+***This package is obsolete in Emacs 24.4 and later.***
+
 This library adds all of the familiar highlighting to `cl-lib` macros
 (`cl-defun`, `cl-loop`, etc.) that were originally provided for `cl`.
 
